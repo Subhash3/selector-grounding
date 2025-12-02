@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CaptureSnapshotResponse } from '../third-party/types';
 
 export interface SemanticNode {
@@ -16,7 +17,7 @@ export interface SemanticNode {
 
 export function buildSemanticDom(snapshot: CaptureSnapshotResponse): SemanticNode[] {
     console.log('Building semantic DOM from snapshot');
-    const docs = (snapshot as any).documents || [];
+    const docs = snapshot.documents || [];
     if (docs.length === 0) return [];
 
     const doc = docs[0] as any;

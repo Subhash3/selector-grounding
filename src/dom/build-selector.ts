@@ -1,4 +1,6 @@
-function makeSelectorFromNode(node: any) {
+import { T_Node } from '../third-party/types';
+
+function makeSelectorFromNode(node: T_Node) {
     // TEXT NODE (nodeType === 3)
     if (node.nodeType === 3) {
         const text = node.nodeValue?.trim();
@@ -9,7 +11,7 @@ function makeSelectorFromNode(node: any) {
     const tag = node.nodeName?.toLowerCase() ?? '*';
 
     let id = '';
-    let classes = [];
+    let classes: string[] = [];
 
     if (node.attributes) {
         for (let i = 0; i < node.attributes.length; i += 2) {
@@ -33,7 +35,7 @@ function cssEscape(text: string) {
     return text.replace(/["\\]/g, '\\$&');
 }
 
-function maybeAddTextSelector(node: any) {
+function maybeAddTextSelector(node: T_Node): string {
     if (node.nodeType === 3) {
         const t = node.nodeValue?.trim();
         if (t) return `:has-text("${cssEscape(t)}")`;
@@ -42,8 +44,8 @@ function maybeAddTextSelector(node: any) {
 
     // ELEMENT: try to grab its direct text children
     const directText = (node.children || [])
-        .filter((n: any) => n.nodeType === 3)
-        .map((n: any) => n.nodeValue?.trim())
+        .filter((n) => n.nodeType === 3)
+        .map((n) => n.nodeValue?.trim())
         .filter(Boolean)
         .join(' ');
 
@@ -53,7 +55,7 @@ function maybeAddTextSelector(node: any) {
     return '';
 }
 
-export function buildSelectorFromFlattened(nodes: any, backendNodeId: number) {
+export function buildSelectorFromFlattened(nodes: T_Node[], backendNodeId: number) {
     const backendMap = new Map();
     const nodeIdMap = new Map();
 

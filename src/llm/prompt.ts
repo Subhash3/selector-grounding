@@ -1,4 +1,6 @@
-export const rankChunkPrompt = (description: string, chunk: any) => `
+import { DomChunk } from '../dom/chunker';
+
+export const rankChunkPrompt = (description: string, chunk: DomChunk) => `
     You are ranking DOM chunks.
 
     User description:

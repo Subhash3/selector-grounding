@@ -9,10 +9,10 @@ import { buildSelectorFromFlattened } from './dom/build-selector';
 async function main() {
     const elements = ['Experience with cards where title is "Software Engineer"'];
 
-    const { client, Page, DOM, DOMSnapshot } = await connectCDP();
+    const { client, DOM, DOMSnapshot } = await connectCDP();
     console.log('Connected to CDP');
 
-    for (let step of elements) {
+    for (const step of elements) {
         // Take a snapshot
         const snapshot = await captureDOMSnapshot(DOMSnapshot);
 
@@ -44,7 +44,7 @@ async function main() {
         });
         console.log('Node info:', nodeInfo);
 
-        for (let c of nodeInfo.node.children || []) {
+        for (const c of nodeInfo.node.children || []) {
             console.log(c);
         }
 

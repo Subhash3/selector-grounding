@@ -2,7 +2,7 @@
 
 Consider the following manual test case:
 
-```
+```text
 - Open the app
 - Click on the 'Projects' icon
 - Wait for the 'Neural Networks' project to appear
@@ -22,7 +22,7 @@ for (step in test_case) {
 }
 ```
 
-# Selector grounding
+## Selector grounding
 
 > This is the llm part
 
@@ -33,7 +33,7 @@ for (step in test_case) {
 SG(dom, element_description) -> selector
 ```
 
-# Perform action
+## Peform actions in the browser
 
 > This the chrome devtools part
 

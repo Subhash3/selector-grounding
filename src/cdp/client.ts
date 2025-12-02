@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const ChromeLauncher = require('chrome-launcher');
 import CDP from 'chrome-remote-interface';
 import { T_Client, T_Page, T_DOM, T_DOMSnapshot, T_Runtime } from '../third-party/types';

@@ -1,4 +1,6 @@
-export const groundingPrompt = (description: string, chunk: any) => `
+import { DomChunk } from '../dom/chunker';
+
+export const groundingPrompt = (description: string, chunk: DomChunk) => `
     You are grounding an element.
 
     User description:

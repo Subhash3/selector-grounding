@@ -1,7 +1,8 @@
+import { DomChunk } from '../dom/chunker';
 import { groundingPrompt } from './grounding-prompt';
 import { llm } from './llm';
 
-export async function groundInChunk(description: string, chunk: any) {
+export async function groundInChunk(description: string, chunk: DomChunk) {
     console.log('Grounding in chunk:', chunk.id);
     const prompt = groundingPrompt(description, chunk);
 
