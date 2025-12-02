@@ -1,0 +1,33 @@
+{
+    "name": "selector-grounding",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "ts-node src/index.ts",
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "@ai-sdk/google": "^2.0.44",
+        "ai": "^5.0.106",
+        "chrome-launcher": "^1.2.1",
+        "chrome-remote-interface": "^0.33.0",
+        "dotenv": "^17.2.3",
+        "ollama": "^0.6.3",
+        "openai": "^4.0.0"
+    },
+    "devDependencies": {
+        "@types/chrome-remote-interface": "^0.33.0",
+        "@types/node": "^24.10.1",
+        "eslint": "^9.39.1",
+        "prettier": "^3.7.3",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@10.16.0"
+}
