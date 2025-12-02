@@ -42,3 +42,13 @@ SG(dom, element_description) -> selector
 - `Grounding`: Use the top ranked chunks to generate the best possible node in the snapshot
 - `Resolve Selector`: Convert the snapshot node to an actual css selector
 
+
+#### Todo
+
+- [ ] Logger
+- [ ] Rethink Chunking
+    - If the element description only has text and the document has multiple nodes with the same text in different places, llm is picking up the wrong element.
+    - Both of those chucks will probably have the same score. So, the selector derived from the first chunk wins.
+    - Should we generate selectors from all the top chunks and use another llm step to pick the best one using the description again? (Sounds like a good idea to me)
+    - Or just use the whole dom without chunking?
+
