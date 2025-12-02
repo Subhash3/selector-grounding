@@ -9,8 +9,8 @@ Consider the following manual test case:
 - Click on 'Learn more' on the 'Neural Networks' project card
 ```
 
-Our main program will read this step by step, and for each step it will call the
-Selector Grounding module to get the selector for the described element.
+Our main program will read this step by step, and for each step it will call the Selector Grounding module to get the
+selector for the described element.
 
 Pseudo code:
 
@@ -37,5 +37,4 @@ SG(dom, element_description) -> selector
 
 > This the chrome devtools part
 
-- It accepts a selector and performs the action (click, wait, etc) on the
-  matched element
+- It accepts a selector and performs the action (click, wait, etc) on the matched element

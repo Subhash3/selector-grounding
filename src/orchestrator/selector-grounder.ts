@@ -4,9 +4,7 @@ import { groundInChunk } from '../llm/grounding';
 export async function groundSelector(description: string, chunks: any[]) {
     console.log('Grounding selector for description:', description);
     // Rank chunks to find top candidates
-    const scores = await Promise.all(
-        chunks.map((ch) => rankChunk(description, ch)),
-    );
+    const scores = await Promise.all(chunks.map((ch) => rankChunk(description, ch)));
 
     const top = scores
         .sort((a, b) => b.score - a.score)
