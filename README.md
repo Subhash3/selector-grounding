@@ -1,4 +1,7 @@
-# Idea
+# Selector Grounding
+
+> Given an element's description in natural language, find the best possible css selector that matches the element in the DOM.
+This is useful in generating automation scripts from manual tests
 
 Consider the following manual test case:
 
@@ -9,8 +12,7 @@ Consider the following manual test case:
 - Click on 'Learn more' on the 'Neural Networks' project card
 ```
 
-Our main program will read this step by step, and for each step it will call the Selector Grounding module to get the
-selector for the described element.
+Read the manual test step by step, and for each step it will call the Selector Grounding module to get the selector for the described element.
 
 Pseudo code:
 
@@ -24,8 +26,6 @@ for (step in test_case) {
 
 ## Selector grounding
 
-> This is the llm part
-
 - It accepts a dom structure and an element description
 - It outputs a selector that matches the described element in the dom
 
@@ -33,8 +33,12 @@ for (step in test_case) {
 SG(dom, element_description) -> selector
 ```
 
-## Peform actions in the browser
+### Idea
 
-> This the chrome devtools part
+- `DOM Snapshot`: Use CDP (Chrome DevTools Protocol) to take the DOM snapshot of the page
+- `Semantic DOM`: Convert snapshot to a minimal structured format
+- `Chunking`: We eventually feed it to the llm. So, it's better to chunk it
+- `Chunk Ranking`: Rank the chunks based on relevance to the element description
+- `Grounding`: Use the top ranked chunks to generate the best possible node in the snapshot
+- `Resolve Selector`: Convert the snapshot node to an actual css selector
 
-- It accepts a selector and performs the action (click, wait, etc) on the matched element
