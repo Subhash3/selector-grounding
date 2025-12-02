@@ -1,5 +1,5 @@
 import { DomChunk } from '../dom/chunker';
-import { groundingPrompt } from './grounding-prompt';
+import { groundingPrompt } from './prompts';
 import { llm } from './llm';
 
 export async function groundInChunk(description: string, chunk: DomChunk) {

@@ -1,6 +1,6 @@
 import { DomChunk } from '../dom/chunker';
 import { llm } from './llm';
-import { rankChunkPrompt } from './prompt';
+import { rankChunkPrompt } from './prompts';
 
 export async function rankChunk(description: string, chunk: DomChunk): Promise<{ id: string; score: number }> {
     console.log('Ranking chunk:', chunk.id);
