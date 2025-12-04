@@ -43,6 +43,29 @@ SG(dom, element_description) -> selector
 - `Resolve Selector`: Convert the snapshot node to an actual css selector
 
 
+## Playaround
+
+```bash
+# clone the repo
+git clone https://github.com/Subhash3/selector-grounding
+
+# Install deps and buil
+pnpm i
+pnpm build
+```
+
+- This project uses Google's `gemini-2.5-flash` model. If you want to use the same,
+    - generate an api key [here](https://aistudio.google.com/)
+    - `cp .env.example .env`
+    - Add the generated api key to `.env`
+- If you prefer using a different model, update the `llm.ts` file accordingly. I may add support for various models in the future. But as now, I'm not worried about it so much.
+
+
+```bash
+pnpm start
+```
+
+
 #### Todo
 
 - [ ] Logger

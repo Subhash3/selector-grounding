@@ -7,7 +7,9 @@ import { groundSelector } from './orchestrator/selector-grounder';
 import { buildSelectorFromFlattened } from './dom/build-selector';
 
 async function main() {
-    const elements = ['Experience with cards where title is "Software Engineer"'];
+    const elements = [
+        'A card that represents "Impact Award winner at GE"'
+    ];
 
     const { client, DOM, DOMSnapshot } = await connectCDP();
     console.log('Connected to CDP');
