@@ -12,6 +12,7 @@ function makeSelectorFromNode(node: T_Node) {
 
     let id = '';
     let classes: string[] = [];
+    const attributes: string[] = [];
 
     if (node.attributes) {
         for (let i = 0; i < node.attributes.length; i += 2) {
@@ -23,11 +24,16 @@ function makeSelectorFromNode(node: T_Node) {
             } else if (name === 'class') {
                 const classList = value.trim().split(/\s+/);
                 classes = classList.map((c: string) => `.${cssEscape(c)}`);
+            } else {
+                if(name === "style") {
+                    continue;
+                }
+                attributes.push(`[${name}="${value}"]`);
             }
         }
     }
 
-    return tag + id + classes.join('');
+    return tag + id + classes.join('') + attributes.join('');
 }
 
 // Escape CSS values
